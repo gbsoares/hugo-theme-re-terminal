@@ -1,0 +1,148 @@
+// Table of Contents compact styles
+// Compact design to minimize space usage at the top of posts
+
+.table-of-contents {
+  background: color-mix(in srgb, var(--background) 95%, var(--accent) 5%);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  
+  h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--accent);
+    font-size: 1rem;
+    border-bottom: 1px dotted var(--accent);
+    padding-bottom: 5px;
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    
+    li {
+      margin: 2px 0;
+      position: relative;
+      
+      &:before {
+        content: none !important; // Override the default list style from post.scss
+      }
+      
+      a {
+        color: var(--color);
+        text-decoration: none;
+        display: block;
+        padding: 2px 0;
+        border-radius: 2px;
+        transition: background-color 0.2s ease;
+        line-height: 1.3;
+        
+        &:hover {
+          background-color: color-mix(in srgb, var(--accent) 10%, transparent);
+          color: var(--accent);
+        }
+      }
+    }
+    
+    // Nested list styling
+    ul {
+      padding-left: 12px;
+      margin-top: 2px;
+      
+      li a {
+        font-size: 0.85rem;
+        opacity: 0.85;
+        padding: 1px 0;
+      }
+      
+      // Third level nesting
+      ul {
+        padding-left: 10px;
+        
+        li a {
+          font-size: 0.8rem;
+          opacity: 0.75;
+          padding: 1px 0;
+        }
+      }
+    }
+  }
+}
+
+// Mobile responsive styles: Make TOC even more compact on smaller screens
+@media (max-width: $tablet) {
+  .table-of-contents {
+    margin-bottom: 20px;
+    padding: 12px;
+    font-size: 0.85rem;
+    
+    h2 {
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+    }
+    
+    ul li {
+      margin: 1px 0;
+      
+      a {
+        padding: 1px 0;
+      }
+    }
+    
+    ul ul {
+      padding-left: 10px;
+      
+      li a {
+        font-size: 0.8rem;
+      }
+      
+      ul {
+        padding-left: 8px;
+        
+        li a {
+          font-size: 0.75rem;
+        }
+      }
+    }
+  }
+}
+
+// Very small screens: Ultra-compact design
+@media (max-width: $phone) {
+  .table-of-contents {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 0.8rem;
+    
+    h2 {
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      padding-bottom: 3px;
+    }
+    
+    ul li {
+      margin: 1px 0;
+    }
+    
+    ul ul {
+      padding-left: 8px;
+      
+      li a {
+        font-size: 0.75rem;
+      }
+      
+      ul {
+        padding-left: 6px;
+        
+        li a {
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}
