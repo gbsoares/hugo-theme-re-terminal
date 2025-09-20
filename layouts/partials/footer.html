@@ -1,16 +1,12 @@
+{{ if $.Site.Params.Copyright }}
 <footer class="footer">
   <div class="footer__inner">
-    {{ if $.Site.Params.Copyright }}
       <div class="copyright copyright--user">
-        <span>{{ $.Site.Params.Copyright | safeHTML }}</span>
-    {{ else }}
-      <div class="copyright">
-        <span>© {{ now.Year }} Powered by <a href="https://gohugo.io">Hugo</a></span>
-    {{ end }}
-      <span>:: <a href="https://github.com/mirus-ua/hugo-theme-re-terminal" target="_blank">Theme</a> made by <a href="https://github.com/mirus-ua" target="_blank">Mirus</a></span>
+        <span>&copy; {{ now.Year }} {{ $.Site.Params.Copyright | safeHTML }}</span>
       </div>
   </div>
 </footer>
+{{ end }}
 
 {{ $menu := resources.Get "js/menu.js" | js.Build }}
 {{ $prism := resources.Get "js/prism.js" | js.Build }}
