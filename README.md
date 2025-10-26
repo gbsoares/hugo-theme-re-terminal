@@ -276,7 +276,10 @@ pagination.pagerSize = 5
   # text = "Check it out on GitHub"
   # url = "https://github.com/mirus-ua/hugo-theme-re-terminal"
 
-
+# Uncomment to configure support for Font Awesome.
+# Follow the site instructions at https://fontawesome.com/ to generate a kit and embed on your site.
+# [params.fontAwesome]
+#   kit = ""
 
 [params.twitter]
   # set Twitter handles for Twitter cards

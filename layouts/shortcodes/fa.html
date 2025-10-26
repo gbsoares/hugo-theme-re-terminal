@@ -1,0 +1,33 @@
+{{/*
+Font Awesome Icon Shortcode
+Usage examples:
+  {{< fa "heart" >}}
+  {{< fa "heart" "solid" >}}
+  {{< fa "heart" "regular" "red" >}}
+  {{< fa "heart" "solid" "red" "2x" >}}
+  {{< fa "heart" "solid" "" "lg" "fa-spin" >}}
+
+Parameters:
+- 0: icon name (required) - just the icon name without "fa-" prefix
+- 1: style (optional) - solid, regular, light, thin, duotone, brands (default: solid)
+- 2: color (optional) - any CSS color value
+- 3: size (optional) - xs, sm, lg, xl, 2x, 3x, 4x, 5x, 6x, 7x, 8x, 9x, 10x
+- 4: animation (optional) - fa-spin, fa-pulse, fa-beat, fa-fade, fa-beat-fade, fa-bounce, fa-flip, fa-shake, fa-swing
+- 5: class (optional) - additional CSS classes
+*/}}
+{{ $icon := .Get 0 }}
+{{ $style := .Get 1 | default "solid" }}
+{{ $color := .Get 2 }}
+{{ $size := .Get 3 }}
+{{ $animation := .Get 4 }}
+{{ $class := .Get 5 }}
+{{ if $icon }}
+{{ $stylePrefix := "" }}
+{{ if eq $style "solid" }}{{ $stylePrefix = "fas" }}
+{{ else if eq $style "regular" }}{{ $stylePrefix = "far" }}
+{{ else if eq $style "light" }}{{ $stylePrefix = "fal" }}
+{{ else if eq $style "thin" }}{{ $stylePrefix = "fat" }}
+{{ else if eq $style "duotone" }}{{ $stylePrefix = "fad" }}
+{{ else if eq $style "brands" }}{{ $stylePrefix = "fab" }}
+{{ else }}{{ $stylePrefix = "fas" }}{{ end }}
+<i class="{{ $stylePrefix }} fa-{{ $icon }}{{ if $size }} fa-{{ $size }}{{ end }}{{ if $animation }} {{ $animation }}{{ end }}{{ if $class }} {{ $class }}{{ end }}"{{ if $color }}style="color: {{ $color | safeCSS }};"{{ end }}></i>{{ end }}

@@ -91,6 +91,13 @@
 {{ with .OutputFormats.Get "json" }}
   <link href="{{ .RelPermalink }}" rel="alternate" type="application/json" title="{{ $.Site.Title }}" />
 {{ end }}
+  
+<!-- Font Awesome Kit -->
+{{ if isset $.Site.Params "fontawesome" }}
+  {{ if $.Site.Params.fontawesome.kit }}
+    <script src="https://kit.fontawesome.com/{{ $.Site.Params.fontawesome.kit }}.js" crossorigin="anonymous"></script>
+  {{ end }}
+{{ end }}
 
 <!-- Extended head section-->
 {{ partial "extended_head.html" . }}
