@@ -84,7 +84,12 @@
     }
   }
 
-  &-cover {
+  &-cover-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 200px;
     border: 10px solid var(--accent);
     background: transparent;
     margin: 20px 0;
@@ -94,6 +99,14 @@
       padding: 10px;
       border-width: 10px;
     }
+  }
+
+  &-cover {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
   }
 
   ul {
@@ -139,11 +152,10 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a {
   color: color-mix(in srgb, var(--accent), transparent 50%);
 }
 
-figure:has(.post-cover) {
+figure:has(.post-cover-container) {
   margin: 40px 0;
 
-
-  & > .post-cover {
+  & > .post-cover-container {
     margin: 0;
   }
 
